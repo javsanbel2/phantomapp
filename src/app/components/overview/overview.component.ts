@@ -143,7 +143,7 @@ export class OverviewComponent implements OnInit {
     return arr.slice(basePage, basePage + this.ITEMS_PER_PAGE);  
   }
 
-  previousPage(arr) {
+  previousPage() {
     this.actualPage -= 1;
     this.bookmarksRendered = this.paginate(this.bookmarks, this.actualPage);
     this.refreshPagination();
