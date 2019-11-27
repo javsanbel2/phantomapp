@@ -26,3 +26,7 @@ The technologies used to this applications were the following:
 I can understand the design is very basic, does not have any special. About Google Closure,
 I saw a module to integrate with Angular that could works, but I only did the research, I
 did not implemented it.
+
+I tried to check if the URL exists trying to ping an URL, but I got CORS issues, I think
+I should have a backend to ping to any website. So, at the moment, I pass a true boolean
+checking if the URL exists. Only there is a regex validation.
