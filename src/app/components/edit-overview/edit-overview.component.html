@@ -7,7 +7,7 @@
         <mat-label>URL</mat-label>
         <input matInput formControlName="url" maxlength="100">
         <mat-error *ngIf="hasError('url', 'required')">Card name is required</mat-error>
-        <!-- <mat-error *ngIf="hasError('name', 'minlength')">Card name must be 2 characters or more</mat-error> -->
+        <mat-error *ngIf="hasError('url', 'pattern')">Must be a valid URL.</mat-error>
       </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>

@@ -19,8 +19,9 @@ export class EditOverviewComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
+    const URL_PATTERN = /^[A-Za-z][A-Za-z\d.+-]*:\/*(?:\w+(?::\w+)?@)?[^\s/]+(?::\d+)?(?:\/[\w#!:.?+=&%@\-/]*)?$/
     this.bookmarkForm = new FormGroup({
-      url: new FormControl(this.data.url, [Validators.required])
+      url: new FormControl(this.data.url, [Validators.required, Validators.pattern(URL_PATTERN)])
     });
   }
 
