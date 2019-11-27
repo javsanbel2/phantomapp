@@ -1,7 +1,7 @@
 <div class="main">
   <div class="header center">
     <div class="head">
-      <img src="../../../assets/images/phantom_logo.svg"/>
+      <img src="./assets/images/phantom_logo.svg"/>
       <h1>Phantom Bookmarks</h1>
     </div>
     <div class="form">
@@ -24,7 +24,7 @@
       <h4>Delete</h4>
     </div>
     <ul class="bookmarks-list">
-      <li *ngFor="let bookmark of bookmarksRendered">
+      <li *ngFor="let bookmark of bookmarksRendered" [@fadeInOut]>
         <span><mat-icon *ngIf="isSecureProtocol(bookmark.url)">lock</mat-icon><mat-icon *ngIf="!isSecureProtocol(bookmark.url)">lock_open</mat-icon></span>
         <span class="url" (click)="editBookmark(bookmark)">{{bookmark.url}}</span>
         <button mat-icon-button (click)="deleteBookmark(bookmark)"><mat-icon>delete_forever</mat-icon></button>

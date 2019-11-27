@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { StorageService } from 'src/app/services/storage.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -13,6 +14,14 @@ import { MessageModalComponent } from 'src/app/shared/components/message-modal/m
   selector: 'app-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.css'],
+  animations: [
+    trigger('fadeInOut', [
+      state('void', style({
+        opacity: 0
+      })),
+      transition('void <=> *', animate(1000)),
+    ]),
+  ]
 })
 export class OverviewComponent implements OnInit {
 
@@ -50,7 +59,8 @@ export class OverviewComponent implements OnInit {
   // Add Bookmark checking if exists
   async addBookmark(bookmarkForm) {
     const bookmarkUrl = this.bookmarkForm.value.url;
-    const urlExists = await this.checkIfUrlExists(bookmarkUrl);
+    // const urlExists = await this.checkIfUrlExists(bookmarkUrl);
+    const urlExists = true;
 
     if (this.bookmarkForm.valid && !urlExists) {
       this.showMessageModal('Bookmark submitted does not exist.')
@@ -130,12 +140,7 @@ export class OverviewComponent implements OnInit {
   }
 
   checkIfUrlExists(url) {
-    const headers = {
-      headers: new HttpHeaders({
-        'Access-Control-Allow-Origin' : '*'
-      })
-    }
-    return this.http.request(new HttpRequest('GET', url, headers)).toPromise();
+    return this.http.request(new HttpRequest('GET', url)).toPromise();
   }
 
   hasError(controlName: string, errorName: string) {

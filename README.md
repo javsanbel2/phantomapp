@@ -2,9 +2,9 @@
 
 Coding test to Phantom.land
 
-## Brief Technical Design Document
+# Brief Technical Design Document
 
-# Motivation
+## Motivation
 
 Javascript web app that maintains a list of bookmarks through local storage. The user is able to add/edit/delete 
 any link in the list with the following actions.
@@ -13,7 +13,7 @@ any link in the list with the following actions.
 - Edit a bookmark pressing above it on the table.
 - Delete a bookmark pressing the trash on the table.
 
-# Techonologies
+## Techonologies
 
 The technologies used to this applications were the following:
 
@@ -21,7 +21,7 @@ The technologies used to this applications were the following:
 - Material Angular to use modals and forms.
 - I used HTML & CSS to develop the basic layout even though I would prefer use SCSS.
 
-# Limitations
+## Limitations
 
 I can understand the design is very basic, does not have any special. About Google Closure,
 I saw a module to integrate with Angular that could works, but I only did the research, I
