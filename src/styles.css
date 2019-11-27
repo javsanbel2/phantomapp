@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: black;color: white;}
+button {color: white}
+button:disabled {color: #b7b7b7 !important; cursor: default!important;}
+
+/* Overview form color workaround */
+.form .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white!important;
+}
+.form mat-form-field .mat-hint, .form input, .form ::placeholder, .form .mat-form-field-label {
+      color: white!important;
+}
+/* Focussed */
+::ng-deep .form .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white!important;
+}
+::ng-deep .form  .mat-form-field.mat-focused .mat-form-field-label {
+    color: white!important;
+}
+::ng-deep .form .mat-form-field-label {
+    color: white!important;
+}

@@ -1,0 +1,132 @@
+.center {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section Add Bookmarks */
+.header {
+  flex: 1;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px;
+}
+
+.head img {
+  margin-right: 50px;
+  display: block;
+  width: 50px;
+  height: auto;
+}
+
+h1 {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+}
+
+.form {
+  padding: 10px 25px;
+  margin: 0px 100px;
+}
+
+.form .mat-form-field-outline {
+  color: white;
+}
+
+form {
+  display: flex;
+}
+
+form mat-form-field {
+  flex: 9;
+}
+
+form button {
+  flex: 1;
+  margin-top: 14px;
+}
+
+form mat-icon {
+  font-size: 38px;
+}
+
+
+/* Section Bookmarks */
+
+.bookmarks {
+  flex: 3;
+  margin: 60px 125px;
+}
+
+.bookmarks h2 {
+  margin: 0 0 50px;
+  font-size: 24px;
+  line-height: 1.17;
+  text-transform: uppercase;
+}
+
+.bookmarks .url {
+  cursor: pointer;
+}
+
+.bookmarks-heading,
+.bookmarks-list li {
+  display: grid;
+  grid-gap: 0 20px;
+  grid-template-columns: 1fr 3fr 1fr auto;
+  align-items: center;
+}
+
+.bookmarks-heading h4 {
+  flex: 1;
+  margin: 0 0 35px;
+  padding-right: 0px;
+  text-transform: uppercase;
+}
+
+.bookmarks-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bookmarks-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.bookmarks-pagination button {
+  margin: 0px 20px;
+}
+
+.bookmarks-pagination button {
+  cursor: pointer;
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 600px) {
+  .head {
+    display: block;
+    margin: 20px 0px;
+  }
+  .head img {
+    margin: auto;
+  }
+  .head h1 {
+    font-size: 28px;
+    text-align: center;
+  }
+  .form {
+    margin: 0px;
+  }
+  .bookmarks {
+    flex: 3;
+    margin: 40px 15px;
+  }
+}

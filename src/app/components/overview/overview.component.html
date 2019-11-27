@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="header center">
+    <div class="head">
+      <img src="../../../assets/images/phantom_logo.svg"/>
+      <h1>Phantom Bookmarks</h1>
+    </div>
+    <div class="form">
+      <form [formGroup]="bookmarkForm" (ngSubmit)="addBookmark(bookmarkForm.value)">
+        <mat-form-field appearance="outline" color="primary" class="url-overview-form">
+          <mat-label>Insert URL to add a bookmark.</mat-label>
+          <input matInput placeholder="" formControlName="url" maxlength="100">
+          <mat-error *ngIf="hasError('url', 'required')">This field can not be empty.</mat-error>
+          <mat-error *ngIf="hasError('url', 'pattern')">Must be a valid URL.</mat-error>
+        </mat-form-field>
+        <button mat-icon-button [disabled]="!bookmarkForm.valid"><mat-icon>add_box</mat-icon></button>
+      </form>
+    </div>
+  </div>
+  <section class="bookmarks center">
+    <h2>Your Bookmarks</h2>
+    <div class="bookmarks-heading">
+      <h4>Protocol</h4>
+      <h4>URL</h4>
+      <h4>Delete</h4>
+    </div>
+    <ul class="bookmarks-list">
+      <li *ngFor="let bookmark of bookmarksRendered">
+        <span><mat-icon *ngIf="isSecureProtocol(bookmark.url)">lock</mat-icon><mat-icon *ngIf="!isSecureProtocol(bookmark.url)">lock_open</mat-icon></span>
+        <span class="url" (click)="editBookmark(bookmark)">{{bookmark.url}}</span>
+        <button mat-icon-button (click)="deleteBookmark(bookmark)"><mat-icon>delete_forever</mat-icon></button>
+      </li>
+    </ul>
+    <div class="bookmarks-pagination">
+      <button mat-button [disabled]="!previousActive" (click)="previousPage()">Previous </button>
+      <span>Page {{actualPage + 1}} / {{totalPages}}</span>
+      <button mat-button [disabled]="!nextActive" (click)="nextPage()"> Next </button>
+    </div>
+  </section>
+</div>
