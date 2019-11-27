@@ -1,27 +1,28 @@
 # Phantomapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
+Coding test to Phantom.land
 
-## Development server
+## Brief Technical Design Document
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Motivation
 
-## Code scaffolding
+Javascript web app that maintains a list of bookmarks through local storage. The user is able to add/edit/delete 
+any link in the list with the following actions.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Add a bookmark in home form.
+- Edit a bookmark pressing above it on the table.
+- Delete a bookmark pressing the trash on the table.
 
-## Build
+# Techonologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The technologies used to this applications were the following:
 
-## Running unit tests
+- Application developed with the framework Angular 8.3.19.
+- Material Angular to use modals and forms.
+- I used HTML & CSS to develop the basic layout even though I would prefer use SCSS.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Limitations
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+I can understand the design is very basic, does not have any special. About Google Closure,
+I saw a module to integrate with Angular that could works, but I only did the research, I
+did not implemented it.

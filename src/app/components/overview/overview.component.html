@@ -6,9 +6,9 @@
     </div>
     <div class="form">
       <form [formGroup]="bookmarkForm" (ngSubmit)="addBookmark(bookmarkForm.value)">
-        <mat-form-field appearance="outline" color="primary" class="url-overview-form">
+        <mat-form-field appearance="outline" color="primary" class="url-overview-form" type="url">
           <mat-label>Insert URL to add a bookmark.</mat-label>
-          <input matInput placeholder="" formControlName="url" maxlength="100">
+          <input matInput placeholder="" formControlName="url" maxlength="200">
           <mat-error *ngIf="hasError('url', 'required')">This field can not be empty.</mat-error>
           <mat-error *ngIf="hasError('url', 'pattern')">Must be a valid URL.</mat-error>
         </mat-form-field>

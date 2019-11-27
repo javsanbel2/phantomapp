@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { StorageService } from 'src/app/services/storage.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Session } from 'src/app/shared/models/Session';
 import { Bookmark } from 'src/app/shared/models/Bookmark';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { DeleteModalComponent } from 'src/app/shared/components/delete-modal/delete-modal.component';
 import { EditOverviewComponent } from '../edit-overview/edit-overview.component';
 import { MessageModalComponent } from 'src/app/shared/components/message-modal/message-modal.component';
@@ -37,8 +37,9 @@ export class OverviewComponent implements OnInit {
   }
 
   ngOnInit() {
+    const URL_PATTERN = /^[A-Za-z][A-Za-z\d.+-]*:\/*(?:\w+(?::\w+)?@)?[^\s/]+(?::\d+)?(?:\/[\w#!:.?+=&%@\-/]*)?$/
     this.bookmarkForm = new FormGroup({
-      url: new FormControl('', [Validators.required, Validators.pattern('^((https?|ftp)://)?([a-z]+[.])?[a-z0-9-]+([.][a-z]{1,4}){1,2}(/.*[?].*)?$')])
+      url: new FormControl('', [Validators.required, Validators.pattern(URL_PATTERN)])
     });
     this.bookmarksRendered = this.paginate(this.bookmarks, this.actualPage);
     this.refreshPagination();
@@ -129,9 +130,12 @@ export class OverviewComponent implements OnInit {
   }
 
   checkIfUrlExists(url) {
-    return this.http.get(url).toPromise().
-      then((data: any) => data.status === 200).
-      catch(i => false)
+    const headers = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin' : '*'
+      })
+    }
+    return this.http.request(new HttpRequest('GET', url, headers)).toPromise();
   }
 
   hasError(controlName: string, errorName: string) {
